@@ -1,40 +1,110 @@
-# Jekyll-Bootstrap
+# Hacking In The Dark
 
-The quickest way to start and publish your Jekyll powered blog. 100% compatible with GitHub pages
+A light-on-dark hacker enthusiast theme for Jekyll + Jekyll-BootStrap. Uses YUI CSS and JavaScript
 
-## Usage
+# Author
 
-For all usage and documentation please see: <http://jekyllbootstrap.com>
+Jonathan Tsai <akajontsai-devel@yahoo.com>
 
-## Version
+This is the theme that I use to power my personal website (http://www.jonathantsai.com).
 
-0.3.0 - stable and versioned using [semantic versioning](http://semver.org/).
+By sharing this theme, I hope to benefit others whenever I add features that extend the functionality of Jekyll-Bootstrap. I believe in code modularity and robustness.
 
-**NOTE:** 0.3.0 introduces a new theme which is not backwards compatible in the sense it won't _look_ like the old version.
-However, the actual API has not changed at all.
-You might want to run 0.3.0 in a branch to make sure you are ok with the theme design changes.
+# Setup
 
-## Contributing
+I've added lots of interesting customizations that **only** require making changes to the `_config.yml` file, and the theme templates take care of the rest.
 
+Here's what's supported now, with more on the way:
 
-To contribute to the framework please make sure to checkout your branch based on `jb-development`!!
-This is very important as it allows me to accept your pull request without having to publish a public version release.
+* Customized Navigation Links - choose which pages show up in your navigation menu
+* Customized Footer Links
+* Social Media Sites - Pull in a lot of content from social media sites just by adding your profile
+* Custom credits - easily thank other developers or useful websites by linking to them
 
-Small, atomic Features, bugs, etc.
-Use the `jb-development` branch but note it will likely change fast as pull requests are accepted.
-Please rebase as often as possible when working.
-Work on small, atomic features/bugs to avoid upstream commits affecting/breaking your development work.
+## Custom Navigation and Footer Links
 
-For Big Features or major API extensions/edits:
-This is the one case where I'll accept pull-requests based off the master branch.
-This allows you to work in isolation but it means I'll have to manually merge your work into the next public release.
-Translation : it might take a bit longer so please be patient! (but sincerely thank you).
+You can add `navlinks` and `footerlinks` to customize the navigation links and footer links. For example:
 
-**Jekyll-Bootstrap Documentation Website.**
+    navlinks :
+      -
+        url : '/index.html'
+        title : Home
+      -
+        url : '/about.html'
+        title : About
+      -
+        url : '/code.html'
+        title : Code
+    
+    footerlinks:
+      -
+        url : '/pages.html'
+        title : Pages
+      -
+        url : '/categories.html'
+        title : Categories
+      -
+        url : '/tags.html'
+        title : Tags
+      -
+        url : '/archive.html'
+        title : Archive
 
-The documentation website at <http://jekyllbootstrap.com> is maintained at https://github.com/plusjade/jekyllbootstrap.com
+You can also customize credits (shoutouts, thank-yous) by adding a `credits` node.
 
+I gave a shoutout to [Jekyll](https://github.com/mojombo/jekyll) and [Jekyll-Bootstrap](http://jekyllbootstrap.com), and my hosting and DNS providers, [Linode](http://www.linode.com/?r=65762fd9ef89c62a08eddbb4c641c9b9a5415ba9) and [FreeDNS](http://freedns.afraid.org/)
 
-## License
+    credits :
+      -
+        pre_text : 'Powered by'
+        url : 'https://github.com/mojombo/jekyll'
+        link_text : Jekyll
+      -
+        pre_text : 'with help from'
+        url : 'http://jekyllbootstrap.com'
+        link_text : 'Jekyll Bootstrap'
+        link_title : 'The Definitive Jekyll Blogging Framework'
+        post_text : '.'
+      -
+        pre_text : ''
+        url : http://www.linode.com/?r=65762fd9ef89c62a08eddbb4c641c9b9a5415ba9
+        link_text : 'Linode'
+        post_text : '.'
+      -
+        pre_text : ''
+        url : 'http://freedns.afraid.org/'
+        link_text : FreeDNS
+        post_text : '.'
 
-[MIT](http://opensource.org/licenses/MIT)
+## Social Media Profiles and Links
+
+For now, the ones that are supported are:
+
+* About.me (about page)
+* GitHub (fork me banner on top-right)
+* Twitter, LinkedIn, Facebook, Flickr (icon on bottom)
+* Feedburner (RSS icon)
+* Olark (website chat widget)
+
+Add the social profile identities right under `author: name` and `author: email` like so:
+
+    author :
+      name : YOUR_NAME
+      email : YOUR_EMAIL_ADDRESS
+      aboutme : USERNAME
+      github : USERNAME
+      twitter : USERNAME
+      linkedin : USERNAME
+      facebook : USERNAME
+      feedburner : USERNAME
+      flickr : USERNAME
+      olark : OLARK_CODE
+
+# Make your own Themes
+
+Follow the instructions here!
+http://jekyllbootstrap.com/api/theme-api.html
+
+After the theme is set up, one easy command to package it for publishing!
+
+    $ rake theme:package name="THEME-NAME"
